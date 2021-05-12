@@ -1,9 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-// import 'package:flutter_maps/maps_examples/addMarkerOnTap.dart';
+import 'package:flutter_maps/maps_examples/drawRoutesWithPolyLines.dart';
+import 'package:flutter_maps/maps_examples/addMarkerOnTap.dart';
 import 'package:flutter_maps/maps_examples/mapsAndMarker.dart';
 
 void main() {
-  runApp(MyApp());
+  runZoned<Future<Null>>(() async {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -16,8 +21,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MapsAndMarker(),
-      // home: AddMarkerOnTap(),
+      // home: MapsAndMarker(),
+      home: AddMarkerOnTap(),
+      // home: DrawRoutesWithPolyLines(),
     );
   }
 }
