@@ -32,6 +32,10 @@ dependencies:
   google_map_polyline: 0.2.0 # requried DirectionAPI to enabled which is paid.
   permission_handler: ^5.0.1
   # flutter_map: used in Maps & Markers coment because it creates conflict.
+  geocoder: ^0.2.1
+  geolocator: ^6.0.0+4
+  search_map_place : ^0.3.0
+  # permission: 
 
 dev_dependencies:
   flutter_test:

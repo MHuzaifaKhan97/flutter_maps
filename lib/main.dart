@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_maps/maps_examples/drawRoutesWithPolyLines.dart';
 import 'package:flutter_maps/maps_examples/addMarkerOnTap.dart';
 import 'package:flutter_maps/maps_examples/mapsAndMarker.dart';
+import 'package:flutter_maps/maps_examples/searchPlaceMap.dart';
 
 void main() {
   runZoned<Future<Null>>(() async {
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: MapsAndMarker(),
-      home: AddMarkerOnTap(),
-      // home: DrawRoutesWithPolyLines(),
+      // home: AddMarkerOnTap(),
+      home: DrawRoutesWithPolyLines(),
+      // home: SearchPlaceMap(),
     );
   }
 }

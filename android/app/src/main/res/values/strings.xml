@@ -1,5 +1,11 @@
+<!-- <resources>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">yourapikey</string>
+</resources> -->
+
+<!-- Inatote -->
 <resources>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBB_iqynhprRYOdxg5N2mCE1ufxdcFDwIk</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">yourapikey</string>
 </resources>
+
 
 

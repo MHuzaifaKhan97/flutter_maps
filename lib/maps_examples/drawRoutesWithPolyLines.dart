@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_map_polyline/google_map_polyline.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class DrawRoutesWithPolyLines extends StatefulWidget {
   @override
@@ -11,40 +10,33 @@ class DrawRoutesWithPolyLines extends StatefulWidget {
 
 // It's not working until we Enabled DirectionAPI which is actually paid.
 class _DrawRoutesWithPolyLinesState extends State<DrawRoutesWithPolyLines> {
-  GoogleMapController _controller;
+  GoogleMapController controller;
   final Set<Polyline> polyline = {};
   List<LatLng> routeCoords;
   GoogleMapPolyline googleMapPolyline =
-      new GoogleMapPolyline(apiKey: 'AIzaSyDbSvp9iW6DnqHroXOxB5QX2TBExz5OWAE');
-  Permission _permission;
-  PermissionStatus _permissionStatus = PermissionStatus.denied;
-
-  void _listenForPermissionStatus() async {
-    final status = await _permission.status;
-    setState(() => _permissionStatus = status);
-  }
-
-  Future<void> requestPermission(Permission permission) async {
-    final status = await permission.request();
-
-    setState(() {
-      print(status);
-      _permissionStatus = status;
-      print(_permissionStatus);
-    });
-  }
-
-  @override
-  initState() {
-    super.initState();
-    getSomePoints();
-  }
+      new GoogleMapPolyline(apiKey: 'yourapikey');
 
   getSomePoints() async {
     routeCoords = await googleMapPolyline.getCoordinatesWithLocation(
         origin: LatLng(24.8379341, 67.0786426),
         destination: LatLng(24.8281093, 67.1573888),
         mode: RouteMode.driving);
+
+    print(routeCoords);
+  }
+
+  getaddressPoints() async {
+    routeCoords = await googleMapPolyline.getPolylineCoordinatesWithAddress(
+        origin: '55 Kingston Ave, Brooklyn, NY 11213, USA',
+        destination: '178 Broadway, Brooklyn, NY 11211, USA',
+        mode: RouteMode.driving);
+  }
+
+  @override
+  initState() {
+    super.initState();
+    getSomePoints();
+    // getaddressPoints();
   }
 
   @override
@@ -62,11 +54,11 @@ class _DrawRoutesWithPolyLinesState extends State<DrawRoutesWithPolyLines> {
 
   void onMapCreated(GoogleMapController controller) {
     setState(() {
-      _controller = controller;
+      controller = controller;
       polyline.add(Polyline(
         polylineId: PolylineId('route1'),
         visible: true,
-        points: routeCoords,
+        points: routeCoords ?? routeCoords,
         width: 4,
         color: Colors.blue,
         startCap: Cap.roundCap,
