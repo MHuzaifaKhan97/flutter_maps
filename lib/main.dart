@@ -7,9 +7,7 @@ import 'package:flutter_maps/maps_examples/mapsAndMarker.dart';
 import 'package:flutter_maps/maps_examples/searchPlaceMap.dart';
 
 void main() {
-  runZoned<Future<Null>>(() async {
-    runApp(MyApp());
-  });
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,8 +22,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: MapsAndMarker(),
       // home: AddMarkerOnTap(),
-      home: DrawRoutesWithPolyLines(),
-      // home: SearchPlaceMap(),
+      // home: DrawRoutesWithPolyLines(),
+      home: SearchPlaceMap(),
     );
   }
 }

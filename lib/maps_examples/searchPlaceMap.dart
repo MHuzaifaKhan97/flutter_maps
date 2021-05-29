@@ -15,7 +15,7 @@ class _SearchPlaceMapState extends State<SearchPlaceMap> {
   void initState() {
     super.initState();
 
-    addInitialMarker();
+    // addInitialMarker();
   }
 
   void addInitialMarker() {
@@ -113,5 +113,224 @@ class _SearchPlaceMapState extends State<SearchPlaceMap> {
     });
     print("Tapped Point");
     print(tappedPoint);
+
+    if (myMarker.isNotEmpty) {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: new InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              hintText: 'Flat/Villa No.',
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: TextField(
+                            decoration: new InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              hintText: 'Building/Villa.',
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: new InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              hintText: 'Street.',
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: TextField(
+                            decoration: new InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    width: 2.0),
+                              ),
+                              hintText: 'Area.',
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                    child: Expanded(
+                      child: TextField(
+                        decoration: new InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.grey.withOpacity(0.3),
+                                width: 2.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.grey.withOpacity(0.3),
+                                width: 2.0),
+                          ),
+                          hintText: 'Directions.',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Icon(
+                                  Icons.home,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Home')
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Icon(
+                                  Icons.work,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Work')
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Icon(
+                                  Icons.store,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Store')
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Icon(
+                                  Icons.pin_drop,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Other')
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  FlatButton(
+                    minWidth: MediaQuery.of(context).size.width * 0.8,
+                    height: 40,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0)),
+                    child: Text('Add Address',
+                        style: TextStyle(color: Colors.white)),
+                    onPressed: () {},
+                    color: Colors.green,
+                  ),
+                  SizedBox(height: 12),
+                ],
+              ),
+            );
+          });
+    }
   }
 }
