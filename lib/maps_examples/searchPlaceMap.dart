@@ -66,7 +66,7 @@ class _SearchPlaceMapState extends State<SearchPlaceMap> {
               hasClearButton: true,
               placeType: PlaceType.address,
               placeholder: 'Enter Location',
-              apiKey: 'AIzaSyDbSvp9iW6DnqHroXOxB5QX2TBExz5OWAE',
+              apiKey: 'yourapikey',
               onSelected: (Place place) async {
                 Geolocation geolocation = await place.geolocation;
                 mapController.animateCamera(
